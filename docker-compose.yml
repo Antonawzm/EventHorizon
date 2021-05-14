@@ -1,0 +1,19 @@
+version: "3.9"
+
+services: 
+        nextcloud:
+                image: nextcloud
+                ports:
+                        - "40044:80"
+                restart: always
+        searx:
+                image: searx/searx
+                ports: 
+                        - "30033:8080"
+                restart: always
+                environment: 
+                        BASE_URL: http://localhost:30033
+                volumes: 
+                        - "./searx:/etc/searx"
+                          
+
